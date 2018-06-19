@@ -47,38 +47,41 @@ for (var i = 0; i < answer.length; i++) {
 //Initalizing a function from keypress. This begins the game.
 document.addEventListener('keypress', function (event) {
 
+    //set user input to lower case
     userGuess = event.key.toLowerCase();
     console.log(userGuess);
 
-    // this is our win condition
+    //a helpful hint for this excruciating word, if it's selected
     if (answer === randomWords[10]) {
         document.getElementById('hint').innerHTML = "Hint: this is a looooooooooooong word";
     }
-
+    //if the user guesses a letter that is not in the array, this will push it and display it on screen as an incorrect guess
     if (letters.indexOf(userGuess) === -1) {
         guessedLetters.push(userGuess);
         guesses--;
         console.log(guesses);
     }
-
+    //will loop through 'letters' array, comparing each index by the letter guessed. If true, guessed letter will be displayed at that index
     for (var i = 0; i < answer.length; i++) {
         if (userGuess === letters[i]) {
             answerDisplay[i] = userGuess;
         }
     }
-
+    //this is the win condition. when the letters guessed matched the answer, the user will win. 
     if (answerDisplay.join("") === answer) {
-        alert('you win');
+        alert('you win'); //will remove alerts in final version
         wins++;
     }
-
+    //lose condition when number of guesses drops to zero
     if (guesses === 0) {
         losses++;
-        alert('you lose');
+        alert('you lose'); //will remove alert in final version
     }
 
-    document.getElementById('blanks').innerHTML = "Fill in the blank: " + answerDisplay.join(" ");
+    //alter html with letters guessed
+    document.getElementById('blanks').innerHTML = "Fill in the blank: " + answerDisplay.join(" "); 
     document.getElementById('guesses').innerHTML = "Guesses: " + guessedLetters;
+    
 });
 
 //Struggling with a reset function. I'd like something that resets the computerPick, guesses, and displays whenever a win/lose is recorded.
