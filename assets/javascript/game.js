@@ -21,7 +21,7 @@
 // 9. After the user wins/loses the game should automatically choose another word and make the user play it.
 
 //Computer will randomly select one of these words
-var randomWords = ['gandolf', 'yoshi', 'microsoft', 'stormtrooper', 'konichiwa', 'sevilla', 'pikachu', 'bonobo', 'bailando', 'sprezzatura'];
+var randomWords = ['gandolf', 'yoshi', 'microsoft', 'stormtrooper', 'konichiwa', 'sevilla', 'pikachu', 'bonobo', 'bailando', 'sprezzatura','exacerbate','elephant','proliferate','ninjago','sushi','karate','slumber','supper','socialize','bilbo','pocahontas','hangman','joke','beard','hipster','fennel','arugula','superfluous','louea'];
 
 //initial variables
 var wins = 0;
