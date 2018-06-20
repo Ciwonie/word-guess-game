@@ -5,24 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Word Guess</title>
+    <title>Word Guess Game</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Shrikhand" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
     <script src="assets/javascript/game.js"></script>
+
 </head>
 
-<body>
+<body onload='initialize()'>
     <container id="title">
-        <div>
-            <h1>
+        <div id="head">
+            <i class="fab fa-forumbee" style="display: inline-block"></i>
+            <h1 style="display: inline-block">
                 Word Guess Game
             </h1>
-            <p id="blanks">Fill in blank: </p>
-            <p id="guesses">Guesses: </p>
-            <h2 id="hint"></h2>
         </div>
+
+        <div id='subhead'>
+
+            <div id='startKeyPress'>
+                <h1>Press any key to start your first guess!</h1>
+            </div>
+
+            <div id="word">
+                <p id="blanks">Fill in the word: </p>
+            </div>
+
+            <div id="guessedLetters">
+                <p id="guesses">Letters guessed: none</p>
+            </div>
+
+            <div id="remainingGuesses">
+                <p id="remaining">Attempts: </p>
+            </div>
+        </div>
+
+        <div id="playthroughs">
+
+            <h1 id='winRatio'>
+                Wins: 0
+            </h1>
+            <h1 id="lossRatio">
+                Losses: 0
+            </h1>
+            <h1 id="correctWord">
+                Solution:
+            </h1>
+
+            <div id="extraLogo">
+
+            </div>
+
+        </div>
+
     </container>
 
+    <footer>
+        <div id="footer-text">
+            <h3>Copyright ©</h3>
+        </div>
+    </footer>
 
 
 
