@@ -30,7 +30,6 @@ var guesses = 10;
 var guessedLetters = [];
 
 //generated variables
-
 var computerSize;
 var answer;
 var answerLength;
@@ -45,6 +44,8 @@ var gameOver
 // var answerDisplay = []; //this is an empty array that will display our underscores in a future function
 // var letters = answer.split(''); // this takes the word chosen from 'answer' and splits it into an array of divided characters
 
+
+//This function will reset conditions when called on
 function initialize() {
     computerSize = Math.floor(Math.random() * randomWords.length);
     answer = randomWords[computerSize];
@@ -65,44 +66,43 @@ function initialize() {
     document.getElementById('guesses').innerHTML = "Letters guessed: " + guessedLetters;
 };
 
-// this for loop will generate an array filled with underscores equal to the length of 'answer'
 
-
-//Initalizing a function from keypress. This begins the game.
+//Initalizing a function from keypress. The game begins!
 document.addEventListener('keypress', function (event) {
 
+    //if the boolean is true, the reset function will be called
     if (gameOver) {
         initialize();
     }
-
+    //if not true, the user will experience the gameplay
     else {
+
         //set user input to lower case
         userGuess = event.key.toLowerCase();
         console.log(userGuess);
 
-        //a helpful hint for this excruciating word, if it's selected
-        // if (answer === randomWords[10]) {
-        //     document.getElementById('hint').innerHTML = "Hint: this is a looooooooooooong word";
-        // }
         //if the user guesses a letter that is not in the array, this will push it and display it on screen as an incorrect guess
         if (letters.indexOf(userGuess) === -1) {
             guessedLetters.push(userGuess);
             guesses--;
             console.log(guesses);
         }
+
         //will loop through 'letters' array, comparing each index by the letter guessed. If true, guessed letter will be displayed at that index
         for (var i = 0; i < answer.length; i++) {
             if (userGuess === letters[i]) {
                 answerDisplay[i] = userGuess;
             }
         }
-        //this is the win condition. when the letters guessed matched the answer, the user will win. 
+
+        //this is the win condition. when the letters guessed matches the answer, the user will win and boolean will be true. 
         if (answerDisplay.join("") === answer) {
             wins++;
             gameOver = true;
             document.getElementById('correctWord').style.color = '#82FF9E';
             document.getElementById('correctWord').innerHTML = 'Solution: ' + answer;
         }
+
         //lose condition when number of guesses drops to zero
         if (guesses === 0) {
             losses++;
@@ -119,11 +119,3 @@ document.addEventListener('keypress', function (event) {
         document.getElementById('remaining').innerHTML = 'Attempts:  ' + guesses;
     }
 });
-
-//Struggling with a reset function. I'd like something that resets the computerPick, guesses, and displays whenever a win/lose is recorded.
-// function reset () {
-//     computerPick = Math.floor(Math.random() * randomWords.length);
-//     answerDisplay = [];
-//     guessedLetters = [];
-//     guesses = 8;
-// };
